@@ -1,0 +1,56 @@
+<html>
+
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="/bootstrap/css/bootstrap.min.css" type="text/css">
+    <link rel="stylesheet" href="/bootstrap/css/bootstrap-theme.min.css" type="text/css">
+    <link rel="stylesheet" href="/css/global.css" type="text/css">
+    <link rel="stylesheet" href="/css/particles.css" type="text/css">
+    <link rel="shortcut icon" href="/img/favicon.png">
+    <title>particles</title>
+</head>
+
+<body style="margin-top:0">
+    <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation" id="navBar">
+        <div class="container">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".bar-content">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand" href="/">Skilxn</a>
+            </div>
+            <div class="collapse navbar-collapse bar-content">
+                <ul class="nav navbar-nav">
+                    <li><a href="/">Home</a></li>
+                    <li><a href="#">Blog</a></li>
+                </ul>
+
+                <ul class="nav navbar-nav navbar-right">
+                    <li class="dropdown">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">Contact Me <span class="caret"></span></a>
+                        <ul class="dropdown-menu" id="contact">
+                            <li>
+                                <a href="https://github.com/skillness/"><img style="height:28px; width:auto; margin-right:5px" src="/img/github.png" alt="github">skillness</a>
+                            </li>
+                            <li>
+                                <a href="mailto:tianye_823@163.com"><span class="glyphicon glyphicon-envelope" style="margin-right:5px;"></span>e-mail</a>
+                            </li>
+                        </ul>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+    <div class="container canvas-wrapper">
+        <canvas id="bg-particles"></canvas>
+        <button class="btn btn-primary navbar-btn" id="funny-button">Funny Mode</button>
+    </div>
+</body>
+<script src="http://cdn.bootcss.com/jquery/1.11.1/jquery.min.js"></script>
+<script src="/bootstrap/js/bootstrap.min.js"></script>
+<script src="/js/particles.js"></script>
+
+</html>

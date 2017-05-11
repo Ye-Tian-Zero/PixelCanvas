@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="zh=CN">
+
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="/bootstrap/css/bootstrap.min.css" type="text/css">
+    <link rel="stylesheet" href="/bootstrap/css/bootstrap-theme.min.css" type="text/css">
+    <link rel="stylesheet" href="/css/global.css" type="text/css">
+    <link rel="shortcut icon" href="/img/favicon.png">
+    <title>Skilxn</title>
+    <script src="/js/vue.js"></script>
+</head>
+
+<body>
+    <!--<div class="panel panel-primary visit_counting visible-lg-block">
+        <div class="panel-heading">
+            Number of visits
+        </div>
+    </div>-->
+
+    <div id="progress-wrapper" v-bind:style="loadingStyle" v-if="visiable">
+        <div class="container">
+            <div class="progress">
+                <div class="progress-bar" :class="barType" :style="{width: progressValue, transition: loadingStyle.transition}">
+                    I'm A Fake Progress Bar
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src="/js/loading.js"></script>
+
+    <div id="main-page" v-bind:style="{visibility:dp_mode}">
+        <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation" id="navBar">
+            <div class="container">
+                <div class="navbar-header">
+                    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".bar-content">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                    <a class="navbar-brand" href="/">Skilxn</a>
+                </div>
+                <div class="collapse navbar-collapse bar-content">
+                    <ul class="nav navbar-nav">
+                        <li class="active"><a href="/">Home</a></li>
+                        <li><a href="#">Blog</a></li>
+                    </ul>
+
+                    <ul class="nav navbar-nav navbar-right">
+                        <li class="dropdown">
+                            <a href="#" class="dropdown-toggle" data-toggle="dropdown">Contact Me <span class="caret"></span></a>
+                            <ul class="dropdown-menu" id="contact">
+                                <li>
+                                    <a href="https://github.com/skillness/"><img style="height:28px; width:auto; margin-right:5px" src="img/github.png" alt="github">skillness</a>
+                                </li>
+                                <li>
+                                    <a href="mailto:tianye_823@163.com"><span class="glyphicon glyphicon-envelope" style="margin-right:5px;"></span>e-mail</a>
+                                </li>
+                            </ul>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+
+        <div class="container">
+            <div class="jumbotron page-head">
+                <h1>Skilxn</h1>
+                <h2>Demos in this website are for my front-end learning</h2>
+                <h2><small style="color:#cdd">Everything is stupid!</small></h2>
+            </div>
+        </div>
+
+        <div class="container show-panel">
+            <div class="row-wrapper">
+                <div class="row">
+                    <div class="col-md-3 col-md-offset-0 col-xs-8 col-xs-offset-2 col-sm-5 col-sm-offset-1">
+                        <div class="thumbnail show-items" id="panel-item">
+                            <a href="demos/stupidClock.html">
+                                <img src="img/stupidClock.png" alt="img">
+                                <div class="caption">
+                                    <h3>Stupid Clock</h3>
+                                </div>
+                            </a>
+                        </div>
+                    </div>
+                    <div class="col-md-3 col-md-offset-0 col-xs-8 col-xs-offset-2 col-sm-5 col-sm-offset-0">
+                        <div class="thumbnail show-items" id="panel-item">
+                            <a href="demos/colorSort.html">
+                                <img src="img/colorSort.png" alt="img">
+                                <div class="caption">
+                                    <h3>Color Sort</h3>
+                                </div>
+                            </a>
+                        </div>
+                    </div>
+                    <div class="col-md-3 col-md-offset-0 col-xs-8 col-xs-offset-2 col-sm-5 col-sm-offset-1">
+                        <div class="thumbnail show-items" id="panel-item">
+                            <a href="demos/blurWithWebWorkers.html">
+                                <img src="img/blur.jpg" alt="img">
+                                <div class="caption">
+                                    <h3>WebWorker</h3>
+                                </div>
+                            </a>
+                        </div>
+                    </div>
+                    <div class="col-md-3 col-md-offset-0 col-xs-8 col-xs-offset-2 col-sm-5 col-sm-offset-0">
+                        <div class="thumbnail show-items" id="panel-item">
+                            <a href="demos/particles.html">
+                                <img src="img/particles.png" alt="img" style="width:200px height:203px">
+                                <div class="caption">
+                                    <h3>Particles</h3>
+                                </div>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-3 col-md-offset-0 col-xs-8 col-xs-offset-2 col-sm-5 col-sm-offset-1">
+                        <div class="thumbnail show-items" id="panel-item">
+                            <a href="demos/beautifulButton.html">
+                                <img src="img/beautifulButton.jpg" alt="img">
+                                <div class="caption">
+                                    <h3>Pretty Button</h3>
+                                </div>
+                            </a>
+                        </div>
+                    </div>
+                    <div class="col-md-3 col-md-offset-0 col-xs-8 col-xs-offset-2 col-sm-5 col-sm-offset-0">
+                        <div class="thumbnail show-items" id="panel-item">
+                            <a href="demos/canvas.html">
+                                <img src="img/canvas.jpg" alt="img">
+                                <div class="caption">
+                                    <h3>Pixel Canvas</h3>
+                                </div>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="/js/loadingDone.js"></script>
+    <script src="http://cdn.bootcss.com/jquery/1.11.1/jquery.min.js"></script>
+    <script src="/bootstrap/js/bootstrap.min.js"></script>
+    <script src="/js/show-items.js"></script>
+    <script src="/js/page-head.js"></script>
+</body>
+
+</html>

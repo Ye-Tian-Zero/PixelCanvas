@@ -1,0 +1,114 @@
+<html>
+    <head>
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="/bootstrap/css/bootstrap.min.css" type="text/css">
+        <link rel="stylesheet" href="/bootstrap/css/bootstrap-theme.min.css" type="text/css">
+        <link rel="stylesheet" href="/css/global.css" type="text/css">
+        <link rel="shortcut icon" href="/img/favicon.png">
+        <title>stupid clock</title>
+        <style>
+        html, body{
+            background-color: rgb(40, 44, 52);
+            margin-top:70px;
+        }
+        canvas{
+            margin: 15% auto;
+            display:block;
+        }
+        </style>
+    </head>
+    <body>
+    <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation" id="navBar">
+        <div class="container">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".bar-content">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand" href="/">Skilxn</a>
+            </div>
+            <div class="collapse navbar-collapse bar-content">
+                <ul class="nav navbar-nav">
+                    <li><a href="/">Home</a></li>
+                    <li><a href="#">Blog</a></li>
+                </ul>
+
+                <ul class="nav navbar-nav navbar-right">
+                    <li class="dropdown">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">Contact Me <span class="caret"></span></a>
+                        <ul class="dropdown-menu" id="contact">
+                            <li>
+                                <a href="https://github.com/skillness/"><img style="height:28px; width:auto; margin-right:5px" src="/img/github.png" alt="github">skillness</a>
+                            </li>
+                            <li>
+                                <a href="mailto:tianye_823@163.com"><span class="glyphicon glyphicon-envelope" style="margin-right:5px;"></span>e-mail</a>
+                            </li>
+                        </ul>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+        <canvas id="drawing"> </canvas>
+        <script>
+        var drawing = document.querySelector("canvas#drawing");
+        drawing.width = "250"
+        drawing.height = "250"
+        var context = drawing.getContext("2d");
+        var draw = (function(){
+            var angle = 0,
+            delta = 2 * Math.PI / 300,
+            length = 70;
+            context.translate(125, 125);
+            return function(){
+                context.clearRect(-125, -125, 250, 250);
+                context.beginPath()
+                context.save();
+                context.shadowOffsetX = 5;
+                context.shadowOffsetY = 5;
+                context.shadowColor = "RGBA(120, 100, 120, 0.7)"
+                context.shadowBlur = 10;
+                context.beginPath();
+                context.arc(0, 0, 100, 0, 2 * Math.PI, false);
+                var gradient = context.createRadialGradient(0, 0, 0, 0, 0, 100)
+                gradient.addColorStop(1, "RGB(50,250,125)");
+                gradient.addColorStop(0, "RGB(50,150,100)");
+                context.fillStyle = gradient;
+                context.fill();
+                context.lineWidth = 4;
+                context.stroke();
+                context.restore();
+                context.save();
+                context.transform(1,1,1,1,1,1)
+                context.lineWidth = 3;
+                context.strokeStyle = "RGB(50, 150, 50)";
+                context.stroke();
+                context.restore();
+                context.save();
+                context.beginPath()
+                context.rotate(angle);
+                context.shadowOffsetX = 5;
+                context.shadowOffsetY = 5;
+                context.shadowColor = "RGBA(120, 100, 120, 0.7)"
+                context.shadowBlur = 3;
+                context.moveTo(0, 0);
+                context.lineWidth = 4;
+                context.lineTo(70, 0);
+                context.moveTo(0, 0);
+                context.arc(0, 0, 5, 2 * Math.PI, false);
+                context.fill();
+                context.stroke();
+                angle += delta;
+                context.restore();
+                context.fill();
+            }
+        })()
+        setInterval(draw, 10);
+        </script>
+    </body>
+    <script src="/js/bg-canvas.js"></script>
+    <script src="http://cdn.bootcss.com/jquery/1.11.1/jquery.min.js"></script>
+    <script src="/bootstrap/js/bootstrap.min.js"></script>
+</html>

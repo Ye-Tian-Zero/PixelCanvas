@@ -1,0 +1,14 @@
+#bg-particles{
+    background-color:#333;
+    z-index: -1;
+    width:100%;
+    border: 2px darkgray solid;
+    border-radius: 4px; 
+    box-shadow: 0 0 10px 5px #222 inset;
+}
+
+#funny-button{
+    margin: 20px auto;
+    display: block;
+    font-size:20px;
+}
