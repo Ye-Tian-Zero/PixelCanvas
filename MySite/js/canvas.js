@@ -62,6 +62,10 @@
             }
     }
 
+    function loadingMaskTransitionEnd(event){
+        event.target.style.display = 'none';
+    }
+
     socket.on('pixelData', function (data) {
         var imageData = new Uint8ClampedArray(data);
         if(typeof imageData.forEach == "function"){
@@ -76,10 +80,9 @@
         context.putImageData(canvasData, 1, 1);
         var loadingMask = document.querySelector('div.loading-mask');
         loadingMask.style.opacity = 0;
-        setTimeout(function(){
-            loadingMask.style.display = 'none';
-            loadingMask = null;
-        }, 1000)
+        loadingMask.addEventListener("transitionend", loadingMaskTransitionEnd);
+        loadingMask.addEventListener("webkitTransitionEnd", loadingMaskTransitionEnd);
+        loadingMask = null;
     })
 
     socket.on('update', function(data){
@@ -109,6 +112,13 @@
         context.putImageData(colorBlock, realX, realY);
     })
 
+    function clickMaskTransitionEnd(event){
+        event.target.style.transition = "none";
+        event.target.style.opacity = "";
+        event.target.style.display = "none";
+        event.target.style.transition = "";
+    }
+
     painterOperator.addEventListener("click", function (event) {
         if(event.offsetX == 0 || event.offsetY == 0)
             return;
@@ -124,7 +134,7 @@
         arr[2] = (y & ~(0xFF)) >> 8;
         arr[3] = y & 0xFF;
         if (!moved) {
-            clickMask.style.display = "block";
+            clickMask.style.display = "flex";
             socket.emit(
                 'changePixel', 
                 buffer,
@@ -153,10 +163,8 @@
                         alert("server error");
                     }
                     clickMask.style.opacity = "0";
-                    setTimeout(function(){
-                        clickMask.style.display = "none";
-                        clickMask.style.opacity = "";
-                    }, 500);
+                    clickMask.addEventListener("transitionend", clickMaskTransitionEnd);
+                    clickMask.addEventListener("webkitTransitionEnd", clickMaskTransitionEnd);
                 })
         }
         moved = false;

@@ -198,19 +198,25 @@ div.your-color-block{
 }
 
 div.click-mask{
+    display:flex;
+    display:-webkit-flex;
+    justify-content: center;
+    -webkit-justify-content: center;
+    -moz-justify-content: center;
+    align-items: center;
+    -webkit-align-items: center;
+    -moz-align-items: center;
     width:100%;
     height:100%;
     position:fixed;
     top:0px;
     left:0px;
     z-index:3;
-    background-color:grey;
     cursor:not-allowed;
-    opacity:0.7;
     display:none;
-    transition:opacity 1s;
-    -webkit-transition:opacity 1s;
-    -moz-transition:opacity 1s;
+    transition:opacity .5s;
+    -webkit-transition:opacity .5s;
+    -moz-transition:opacity .5s;
 }
 
 div.loading-mask{
@@ -237,15 +243,16 @@ p.loading-text{
 }
 
 div.click-mask p{
-    position:relative;
-    top:47%;
+    border-radius:15px;
+    background-color:lightgray;
+    box-shadow: 0 0 5px black;
     font-family:consolas, Courier New, Courier, monospace, 'Times New Roman', Times, serif;
     user-select:none;
     min-width:300px;
-    margin:auto;
+    margin:0 auto;
     text-align:center;
-    font-size:40px;
-    color:white;
+    font-size:50px;
+    color:darkmagenta;
     opacity:1;
 }
 
